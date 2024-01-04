@@ -6,19 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springHandOn.models.Song;
 
 @Component
-@Scope(BeanDefinition.SCOPE_SINGLETON)
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class VehicleService {
     @Autowired
     private Speakers speakers;
     @Autowired
     private Tyres tyres;
-    public void playMusic(){
-        speakers.useSpeakers();
+
+    public void playMusic(Song song){
+        speakers.useSpeakers(song);
     }
-    public void move(){
-        tyres.useTyres();
+    public void moveVehicle(){
+        tyres.rotate();
+    }
+    public void applyBrake(){
+        tyres.brake();
     }
 
     public Speakers getSpeakers() {

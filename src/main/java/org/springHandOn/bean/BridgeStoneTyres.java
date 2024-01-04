@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 @Primary
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class BridgeStoneTyres implements Tyres {
-    public void useTyres() {
-        System.out.println("car use Bridge Stones Tyres");
+    public void rotate() {
+        System.out.println("car move using Bridge Stones Tyres");
+    }
+    public void brake(){
+        System.out.println("brake");
     }
 }

@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class MichelinTyres implements Tyres {
-    public void useTyres() {
-        System.out.println("car use Michelin Tyres");
+    public void rotate() {
+        System.out.println("car move using Michelin Tyres");
     }
+    public void brake(){
+        System.out.println("break");  }
 }

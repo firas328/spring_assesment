@@ -1,5 +1,6 @@
 package org.springHandOn.interfaces;
 
 public interface Tyres {
-    public void useTyres();
+    public void rotate();
+    public void brake();
 }
