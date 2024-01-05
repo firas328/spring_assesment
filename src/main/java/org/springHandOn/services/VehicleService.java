@@ -1,5 +1,7 @@
 package org.springHandOn.services;
 
+import org.aspectj.lang.annotation.Aspect;
+import org.springHandOn.interfaces.LogAspect;
 import org.springHandOn.interfaces.Speakers;
 import org.springHandOn.interfaces.Tyres;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springHandOn.models.Song;
 
+import java.util.logging.Logger;
+
 @Component
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class VehicleService {
@@ -15,13 +19,15 @@ public class VehicleService {
     private Speakers speakers;
     @Autowired
     private Tyres tyres;
-
+    @LogAspect
     public void playMusic(Song song){
         speakers.useSpeakers(song);
     }
+    @LogAspect
     public void moveVehicle(){
         tyres.rotate();
     }
+
     public void applyBrake(){
         tyres.brake();
     }
