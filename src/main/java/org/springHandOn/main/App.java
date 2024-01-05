@@ -13,8 +13,9 @@ public class App
         var song=new Song(singerName,songName);
         var context= new AnnotationConfigApplicationContext(projectConfig.class);
         Person person=context.getBean(Person.class);
-        person.getVehicle().getVehicleService().playMusic(song);
-        person.getVehicle().getVehicleService().moveVehicle();
-        person.getVehicle().getVehicleService().applyBrake();
+        boolean isStart=true;
+        person.getVehicle().getVehicleService().moveVehicle(isStart);
+        person.getVehicle().getVehicleService().playMusic(isStart,song);
+        person.getVehicle().getVehicleService().applyBrake(isStart);
     }
 }

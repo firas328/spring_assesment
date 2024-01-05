@@ -19,18 +19,23 @@ public class VehicleService {
     private Speakers speakers;
     @Autowired
     private Tyres tyres;
+
+
+
+
     @LogAspect
-    public void playMusic(Song song){
+    public void playMusic(boolean isVehicleStart,Song song){
         speakers.useSpeakers(song);
     }
     @LogAspect
-    public void moveVehicle(){
+    public void moveVehicle(boolean isVehicleStart){
         tyres.rotate();
     }
 
-    public void applyBrake(){
+    public void applyBrake(boolean isVehicleStart){
         tyres.brake();
     }
+
 
     public Speakers getSpeakers() {
         return speakers;
